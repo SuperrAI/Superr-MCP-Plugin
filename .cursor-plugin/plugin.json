@@ -1,0 +1,15 @@
+{
+  "name": "superr-mcp",
+  "version": "1.0.0",
+  "description": "Read and write your handwritten SuperrPaper notebooks.",
+  "author": {
+    "name": "Superr",
+    "email": "hey@superr.ai"
+  },
+  "homepage": "https://superr.ai/mcp",
+  "mcpServers": {
+    "superr": {
+      "url": "https://mcp.superr.ai/mcp"
+    }
+  }
+}
