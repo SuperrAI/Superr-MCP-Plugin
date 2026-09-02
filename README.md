@@ -1,16 +1,16 @@
-# Superr MCP plugin for Cursor and Grok Bot
+# Superr MCP
 
-Connects Cursor and Grok Bot to [SuperrPaper](https://superr.ai/mcp), a
+Connect any MCP client to [SuperrPaper](https://superr.ai/mcp), a
 handwriting-first notebook app for iPad.
 
-This repository is the plugin manifest. The MCP server itself is hosted at
-`https://mcp.superr.ai/mcp`; there is nothing to install or run locally.
+The server is hosted at `https://mcp.superr.ai/mcp`. There is nothing to install
+or run: this repository holds the connection details and the per-client manifests
+that some directories require.
 
 ## What it does
 
 SuperrPaper has no keyboard by design, so everything on a page was written with
-an Apple Pencil or spoken aloud. This plugin lets an agent work with those
-notebooks:
+an Apple Pencil or spoken aloud. Connected to this server, an assistant can:
 
 - browse folders and notebooks, and read what is actually on a page, including
   the handwriting, typeset documents, notes, cards, templates and shapes
@@ -20,22 +20,53 @@ notebooks:
 
 Anything written lands on the person's real page and syncs to their iPad.
 
+## Connecting
+
+| | |
+|---|---|
+| Server URL | `https://mcp.superr.ai/mcp` |
+| Transport | Streamable HTTP |
+| Auth | OAuth 2.1 with PKCE |
+| Scopes | `notebooks.read`, `notebooks.write` |
+
+No client credentials need configuring. The server publishes
+[RFC 9728](https://datatracker.ietf.org/doc/html/rfc9728) protected-resource
+metadata at `/.well-known/oauth-protected-resource/mcp` and supports both
+[RFC 7591](https://datatracker.ietf.org/doc/html/rfc7591) dynamic client
+registration and Client ID Metadata Documents, so a client registers itself and
+runs the flow.
+
+Most clients need only the URL. A few want it spelled out:
+
+**Claude Code**
+
+```
+claude mcp add --transport http superr https://mcp.superr.ai/mcp
+```
+
+then `/mcp` to sign in.
+
+**Anything reading a config file**
+
+```json
+{
+  "mcpServers": {
+    "superr": {
+      "url": "https://mcp.superr.ai/mcp"
+    }
+  }
+}
+```
+
+**Cursor and Grok Bot** read `.cursor-plugin/plugin.json` in this repository.
+
 ## Access
 
-The server reaches only that person's own notebooks and the ones already shared
-with them. Authentication is OAuth 2.1 with PKCE against Superr's identity
-service; the scopes are `notebooks.read` and `notebooks.write`, and access can
-be revoked at any time from the SuperrPaper app.
+The server reaches only the signed-in person's own notebooks and the ones
+already shared with them. Access can be revoked at any time from the SuperrPaper
+app.
 
-No client credentials need to be configured here. The server publishes
-[RFC 9728](https://datatracker.ietf.org/doc/html/rfc9728) protected-resource
-metadata and supports both RFC 7591 dynamic client registration and Client ID
-Metadata Documents, so the client registers itself and runs the flow.
-
-## Installing
-
-Add this plugin from the Cursor marketplace, then sign in when prompted. You
-will need a SuperrPaper account, created by signing in on the
+You will need a SuperrPaper account, created by signing in on the
 [iPad app](https://apps.apple.com/us/app/superrpaper/id6778513466).
 
 ## Links
