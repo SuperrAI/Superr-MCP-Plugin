@@ -10,6 +10,7 @@
   "homepage": "https://superr.ai/mcp",
   "repository": "https://github.com/SuperrAI/Superr-MCP-Plugin",
   "license": "MIT",
+  "logo": "assets/logo.png",
   "keywords": [
     "superrpaper",
     "notebooks",
