@@ -1,5 +1,6 @@
 {
   "name": "superr-mcp",
+  "displayName": "SuperrPaper",
   "version": "1.0.0",
   "description": "Read and write your handwritten SuperrPaper notebooks.",
   "author": {
@@ -7,9 +8,22 @@
     "email": "hey@superr.ai"
   },
   "homepage": "https://superr.ai/mcp",
-  "mcpServers": {
-    "superr": {
-      "url": "https://mcp.superr.ai/mcp"
-    }
-  }
+  "repository": "https://github.com/SuperrAI/Superr-MCP-Plugin",
+  "license": "MIT",
+  "keywords": [
+    "superrpaper",
+    "notebooks",
+    "handwriting",
+    "notes",
+    "ipad",
+    "mcp"
+  ],
+  "category": "integrations",
+  "tags": [
+    "notebooks",
+    "handwriting",
+    "notes",
+    "mcp"
+  ],
+  "mcpServers": "./mcp.json"
 }

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "superr": {
+      "type": "http",
+      "url": "https://mcp.superr.ai/mcp"
+    }
+  }
+}

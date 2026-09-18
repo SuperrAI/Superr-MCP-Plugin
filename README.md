@@ -46,7 +46,7 @@ claude mcp add --transport http superr https://mcp.superr.ai/mcp
 
 then `/mcp` to sign in.
 
-**Anything reading a config file**
+**Anything reading a config file** (the same config is in [`mcp.json`](mcp.json))
 
 ```json
 {
@@ -58,7 +58,8 @@ then `/mcp` to sign in.
 }
 ```
 
-**Cursor and Grok Bot** read `.cursor-plugin/plugin.json` in this repository.
+**Cursor and Grok Bot** read `.cursor-plugin/plugin.json`, which points at
+`mcp.json` in this repository.
 
 ## Access
 
