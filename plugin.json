@@ -1,11 +1,12 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.1.0/plugin.schema.json",
   "name": "superr-mcp",
-  "displayName": "SuperrPaper",
   "version": "1.0.0",
   "description": "Read and write your handwritten SuperrPaper notebooks.",
   "author": {
     "name": "Superr",
-    "email": "hey@superr.ai"
+    "email": "hey@superr.ai",
+    "url": "https://superr.ai"
   },
   "homepage": "https://superr.ai/mcp",
   "repository": "https://github.com/SuperrAI/Superr-MCP-Plugin",
@@ -17,18 +18,5 @@
     "notes",
     "ipad",
     "mcp"
-  ],
-  "category": "integrations",
-  "tags": [
-    "notebooks",
-    "handwriting",
-    "notes",
-    "mcp"
-  ],
-  "mcpServers": {
-    "superr": {
-      "type": "http",
-      "url": "https://mcp.superr.ai/mcp"
-    }
-  }
+  ]
 }
