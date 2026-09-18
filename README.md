@@ -46,7 +46,7 @@ claude mcp add --transport http superr https://mcp.superr.ai/mcp
 
 then `/mcp` to sign in.
 
-**Anything reading a config file** (the same config is in [`mcp.json`](mcp.json))
+**Anything reading a config file**
 
 ```json
 {
@@ -58,8 +58,11 @@ then `/mcp` to sign in.
 }
 ```
 
-**Cursor and Grok Bot** read `.cursor-plugin/plugin.json`, which points at
-`mcp.json` in this repository.
+**Plugin directories and clients** find the server in this repository:
+
+- `plugin.json` and `mcp.json` at the root follow the
+  [Agent Plugins](https://agent-plugins.org) 1.1.0 standard
+- `.cursor-plugin/plugin.json` is the Cursor manifest, also read by Grok Bot
 
 ## Access
 
